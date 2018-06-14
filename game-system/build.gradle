@@ -1,0 +1,9 @@
+plugins { id "io.spring.dependency-management" version "1.0.0.RELEASE" }
+
+dependencies {
+    compile project(':game-common')
+}
+
+dependencyManagement {
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}

@@ -1,0 +1,109 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{modal.title}}</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" name="setForm">
+        <div class="form-group">
+            <label for="roleName" class="col-md-4 control-label">权限</label>
+            <div class="col-md-8">
+                <div class="fg-line select">
+                    <select class="form-control"
+                        name="roleName" id="roleName"
+                        ng-options="r.roleName as r.description for r in modal.roles"
+                        ng-model="modal.data.roleName"
+                        ng-disabled="modal.currentUser == modal.data.username">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group"
+            ng-class="{'has-warning': setForm.username.$dirty && setForm.username.$invalid}">
+            <label for="username" class="col-md-4 control-label">用户名</label>
+            <div class="col-md-8">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm"
+                        name="username" id="username"
+                        placeholder="用户名"
+                        ng-model="modal.data.username"
+                        ensure-unique
+                        ng-minlength="3" ng-maxlength="16"
+                        ng-pattern="/^\S+$/"
+                        ng-disabled="modal.action=='edit'"
+                        required>
+                </div>
+                <small class="help-block"
+                    ng-show="setForm.username.$dirty && setForm.username.$invalid">
+                    用户名不能低于3个字符，或者该用户名已被使用
+                </small>
+            </div>
+        </div>
+        <div class="form-group"
+            ng-class="{'has-warning': setForm.name.$dirty && setForm.name.$invalid}">
+            <label for="name" class="col-md-4 control-label">名称</label>
+            <div class="col-md-8">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm"
+                        name="名称" id="name"
+                        placeholder="Name"
+                        ng-model="modal.data.name"
+                        ng-maxlength="32">
+                </div>
+                <small class="help-block"
+                    ng-show="setForm.name.$dirty && setForm.name.$invalid">
+                    名称不能超过32个字符
+                </small>
+            </div>
+        </div>
+        <div class="form-group" ng-if="modal.currentUser != modal.data.username"
+            ng-class="{'has-warning': setForm.password.$dirty && setForm.password.$invalid}">
+            <label for="password" class="col-md-4 control-label">密码</label>
+            <div class="col-md-8">
+                <div class="fg-line">
+                    <input type="password" class="form-control input-sm"
+                        name="password" id="password"
+                        placeholder="密码"
+                        ng-minlength="6" ng-maxlength="32"
+                        ng-model="modal.data.password">
+                </div>
+                <small class="help-block" ng-show="setForm.password.$dirty && setForm.password.$invalid">
+                    密码不能低于3个字符
+                </small>
+            </div>
+        </div>
+        <div class="form-group" ng-if="modal.currentUser != modal.data.username && (modal.data.password.length || modal.action == 'add')"
+             ng-class="{'has-warning': modal.data.password != modal.confirmPwd && modal.confirmPwd}">
+            <label for="confirmPwd" class="col-md-4 control-label">确认密码</label>
+            <div class="col-md-8">
+                <div class="fg-line">
+                    <input type="password" class="form-control input-sm"
+                        name="确认密码" id="confirmPwd"
+                        placeholder="Confirm password"
+                        ng-model="modal.confirmPwd"
+                        required>
+                </div>
+                <small class="help-block"
+                    ng-show="modal.data.password != modal.confirmPwd && modal.confirmPwd">
+                    密码和确认密码不同
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="enabled" class="col-md-4 control-label">使能</label>
+            <div class="col-md-8 m-t-10">
+                <div class="toggle-switch" data-ts-color="green">
+                    <input type="checkbox" hidden="hidden"
+                        name="enabled" id="enabled"
+                        ng-disabled="modal.currentUser == modal.data.username"
+                        ng-model="modal.data.enabled">
+                    <label for="enabled" class="ts-helper"></label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-info" ng-click="ok()"
+        ng-disabled="setForm.$pristine || (setForm.$dirty && setForm.$invalid)
+        || (modal.action =='add' && !modal.data.password.length || modal.data.password != modal.confirmPwd)">保存</button>
+    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+</div>

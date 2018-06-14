@@ -1,0 +1,36 @@
+<div class="block-header">
+    <h2>
+        <i class="zmdi zmdi-wrench"></i> 统计
+        <i class="zmdi zmdi-chevron-right"></i>
+        <i class="zmdi zmdi-chevron-right"></i> 代理流水
+    </h2>
+</div>
+<div class="card">
+    <div class="card-header ch-alt">
+        <h2>代理流水</h2>
+        <ul class="actions">
+            <div class="btn-group" dropdown>
+                <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                    {{selectedText}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li ng-repeat="menu in menus">
+                        <a ng-click="changeDayRange(menu)"> {{menu.text}}</a>
+                    </li>
+                </ul>
+            </div>
+            <button ng-click="refresh()" class="btn btn-primary">
+                <i class="zmdi zmdi-refresh-alt"></i>
+            </button>
+        </ul>
+    </div>
+    <div class="card-body card-padding">
+        <div class="gridFullStyle" ui-grid="gridOptions"
+            ui-grid-selection
+            ui-grid-resize-columns
+            ui-grid-move-columns
+            ui-grid-exporter>
+        </div>
+    </div>
+</div>

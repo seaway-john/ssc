@@ -1,0 +1,13 @@
+<header id="header" data-current-skin="{{currentSkin}}" data-ng-include="'templates/header.html'" data-ng-controller="headerController">
+</header>
+<section id="main">
+    <aside id="sidebar" data-ng-include="'templates/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+    <div class="container">
+        <section id="content" class="page-view">
+             <div class="block-header">
+        <h2>
+            <i class="zmdi zmdi-view-dashboard"></i> Dashboard
+        </h2>
+    </div>
+</section>
+<footer id="footer" data-ng-include="'templates/footer.html'"></footer>

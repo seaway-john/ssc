@@ -1,0 +1,54 @@
+<div class="block-header">
+    <h2>
+        <i class="zmdi zmdi-wrench"></i> 游戏配置
+        <i class="zmdi zmdi-chevron-right"></i>
+        <i class="zmdi zmdi-chevron-right"></i> 邀请二维码
+    </h2>
+</div>
+
+<div class="card">
+    <div class="card-header ch-alt">
+        <h2>邀请二维码</h2>
+    </div>
+    <div class="card-body card-padding">
+        <form class="form-horizontal" name="setForm" role="form">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="invitedCode" class="col-sm-3 control-label">邀请码</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control input-sm"
+                            name="invitedCode" id="invitedCode"
+                            placeholder="邀请码"
+                            ng-model="data.invitedCode"
+                            ng-disabled="true"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="wechatUrl" class="col-sm-3 control-label">微信邀请链接</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control input-sm"
+                            name="wechatUrl" id="wechatUrl"
+                            placeholder="微信邀请链接"
+                            ng-model="data.wechatUrl"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label for="qrCode" class="col-sm-3 control-label">微信邀请二维码</label>
+                    <div class="col-sm-9">
+                        <img src="{{data.qrCodeUrl}}" alt="微信邀请二维码" width="300px" height="300px" style="cursor: move;box-shadow: 0px 1px 5px 0px rgba(10, 10, 10, 0.43);">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="btn-demo">
+            <button class="btn btn-success waves-effect" ng-click="refresh()">刷新</button>
+            <button class="btn btn-info waves-effect" ng-click="reGenerate()">重新生成</button>
+        </div>
+    </div>
+</div>

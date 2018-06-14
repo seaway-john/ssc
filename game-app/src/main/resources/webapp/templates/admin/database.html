@@ -1,0 +1,53 @@
+<div class="block-header">
+    <h2>
+        <i class="zmdi zmdi-puzzle-piece"></i>
+        管理员
+        <i class="zmdi zmdi-chevron-right"></i>
+        <i class="zmdi zmdi-chevron-right"></i>
+        数据库
+    </h2>
+</div>
+
+<div class="card">
+    <div class="card-header ch-alt">
+        <h2>备份数据库列表</h2>
+        <ul class="actions">
+            <li>
+                <a href="" tooltip="刷新" ng-click="refresh()">
+                    <i class="zmdi zmdi-refresh-alt"></i>
+                </a>
+            </li>
+            <li>
+                <a href="" tooltip="备份" ng-click="backup()">
+                    <i class="zmdi zmdi-window-restore"></i>
+                </a>
+            </li>
+            <li>
+                <a href="" tooltip="上传" ng-click="upload()">
+                    <i class="zmdi zmdi-cloud-upload"></i>
+                </a>
+                <button type="button" id="uploadFileButton" ng-hide="true" ng-file-select="onFileSelect($files)" data-multiple="false">
+                </button>
+            </li>
+            <li ng-show="selectedData.length">
+                <a href="" tooltip="删除" ng-click="delete()">
+                    <i class="zmdi zmdi-minus"></i>
+                </a>
+            </li>
+            <li ng-show="selectedData.length==1">
+                <a href="" tooltip="恢复" ng-click="restore()">
+                    <i class="zmdi zmdi-rotate-ccw"></i>
+                </a>
+            </li>
+            <li ng-show="selectedData.length==1">
+                <a target="_self" href="/game-app/admin/database/download?fileName={{selectedData[0].fileName}}" tooltip="下载">
+                    <i class="zmdi zmdi-cloud-download"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body card-padding">
+        <div class="gridFullStyle" ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-move-columns ui-grid-exporter>
+        </div>
+    </div>
+</div>

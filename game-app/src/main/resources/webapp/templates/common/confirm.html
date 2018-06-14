@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{modal.title}}</h4>
+</div>
+<div class="col-sm-12 alert alert-warning" ng-show="modal.warning.length">
+    <div ng-repeat="w in modal.warning">{{w}}</div>
+</div>
+<div class="modal-body">
+    <p>{{modal.content}}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-info" ng-click="ok()">确定</button>
+    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+</div>

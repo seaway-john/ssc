@@ -1,0 +1,8 @@
+rootProject.name = 'game'
+
+include 'game-admin'
+include 'game-app'
+include 'game-common'
+include 'game-manager'
+include 'game-system'
+

@@ -1,0 +1,79 @@
+<configuration scan="true">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{ISO8601} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/opt/seaway-game/logs/game.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>/opt/seaway-game/logs/game.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{ISO8601} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="AUDIT-FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/opt/seaway-game/logs/game-audit.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>/opt/seaway-game/logs/game-audit.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{ISO8601} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONFIGURATION-FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/opt/seaway-game/logs/game-config-audit.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>/opt/seaway-game/logs/game-config-audit.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{ISO8601} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="net.schmizz" level="INFO"/>
+    <logger name="org.apache" level="ERROR"/>
+    <logger name="org.eclipse.jetty" level="INFO"/>
+    <logger name="org.springframework" level="ERROR"/>
+
+    <logger name="com.seaway" level="INFO"/>
+
+    <logger name="audit" level="INFO" additivity="true">
+        <appender-ref ref="AUDIT-FILE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <logger name="config-audit" level="INFO" additivity="true">
+        <appender-ref ref="CONFIGURATION-FILE"/>
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

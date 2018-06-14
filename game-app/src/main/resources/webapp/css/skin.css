@@ -1,0 +1,139 @@
+[data-current-skin="lightblue"] {
+    background-color: #03a9f4;
+}
+
+[data-current-skin="lightblue"] .ss-icon {
+    color: #03a9f4;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="lightblue"] .ha-menu {
+        background: #03a9f4;
+    }
+}
+
+[data-current-skin="bluegray"] {
+    background-color: #607d8b;
+}
+
+[data-current-skin="bluegray"] .ss-icon {
+    color: #607d8b;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="bluegray"] .ha-menu {
+        background: #607d8b;
+    }
+}
+
+[data-current-skin="blue"] {
+    background-color: #2196f3;
+}
+
+[data-current-skin="blue"] .ss-icon {
+    color: #2196f3;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="blue"] .ha-menu {
+        background: #2196f3;
+    }
+}
+
+[data-current-skin="purple"] {
+    background-color: #9c27b0;
+}
+
+[data-current-skin="purple"] .ss-icon {
+    color: #9c27b0;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="purple"] .ha-menu {
+        background: #9c27b0;
+    }
+}
+
+[data-current-skin="orange"] {
+    background-color: #ff9800;
+}
+
+[data-current-skin="orange"] .ss-icon {
+    color: #ff9800;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="orange"] .ha-menu {
+        background: #ff9800;
+    }
+}
+
+[data-current-skin="cyan"] {
+    background-color: #00bcd4;
+}
+
+[data-current-skin="cyan"] .ss-icon {
+    color: #00bcd4;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="cyan"] .ha-menu {
+        background: #00bcd4;
+    }
+}
+
+[data-current-skin="green"] {
+    background-color: #4caf50;
+}
+
+[data-current-skin="green"] .ss-icon {
+    color: #4caf50;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="green"] .ha-menu {
+        background: #4caf50;
+    }
+}
+
+[data-current-skin="teal"] {
+    background-color: #009688;
+}
+
+[data-current-skin="teal"] .ss-icon {
+    color: #009688;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="teal"] .ha-menu {
+        background: #009688;
+    }
+}
+
+[data-current-skin="pink"] {
+    background-color: #e91e63;
+}
+
+[data-current-skin="pink"] .ss-icon {
+    color: #e91e63;
+}
+
+@media (max-width: 767px) {
+    [data-current-skin="pink"] .ha-menu {
+        background: #e91e63;
+    }
+}
+
+#header .skin-switch {
+    padding: 15px 0 8px;
+    text-align: center;
+}
+
+#header .ss-skin {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    margin: 2px 5px;
+}

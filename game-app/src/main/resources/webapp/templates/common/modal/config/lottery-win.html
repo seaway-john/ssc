@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{modal.title}}</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" name="setForm">
+        <div class="form-group">
+            <label for="sequence" class="col-sm-4 control-label">期数</label>
+            <div class="col-sm-8">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm"
+                        name="sequence" id="sequence"
+                        placeholder="微信昵称"
+                        ng-model="modal.data.sequence"
+                        ng-disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="awardNumber" class="col-sm-4 control-label">开奖号码</label>
+            <div class="col-sm-8">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm"
+                        name="awardNumber" id="awardNumber"
+                        placeholder="开奖号码"
+                        ng-model="modal.data.awardNumber"
+                        ng-minlength="5" ng-maxlength="5"
+                        ng-pattern="/^\d{5}$/">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-info" ng-click="ok()"
+        ng-disabled="setForm.$pristine || (setForm.$dirty && setForm.$invalid)">确定</button>
+    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+</div>

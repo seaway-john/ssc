@@ -1,0 +1,45 @@
+<div class="block-header">
+    <h2>
+        <i class="zmdi zmdi-wrench"></i> 游戏配置
+        <i class="zmdi zmdi-chevron-right"></i>
+        <i class="zmdi zmdi-chevron-right"></i> 开奖
+    </h2>
+</div>
+<div class="card">
+    <div class="card-header ch-alt">
+        <h2>开奖 ({{pageable.totalElements}})</h2>
+        <ul class="actions">
+            <li>
+                <a tooltip="刷新"
+                    ng-click="refresh()">
+                    <i class="zmdi zmdi-refresh-alt"></i>
+                </a>
+            </li>
+            <li ng-if="isAdmin" ng-show="selectedData.length == 1">
+                <a tooltip="手动开奖"
+                    ng-click="edit()">
+                    <i class="zmdi zmdi-edit"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body card-padding">
+        <div class="gridFullStyle" ui-grid="gridOptions"
+            ui-grid-selection
+            ui-grid-resize-columns
+            ui-grid-move-columns
+            ui-grid-exporter>
+        </div>
+        <div>
+            <pagination total-items="pageable.totalElements" max-size="5" items-per-page="pageable.size"
+                        ng-model="pageable.number" ng-change="refresh()" class="pagination-sm m-b-0" boundary-links="true">
+            </pagination>
+            <div class="btn-group pull-right m-t-20">
+                <button type="button" class="btn btn-default waves-effect" ng-repeat="item in pageItems"
+                        ng-class="{'active':pageable.size == item}" ng-click="setItemsPerPage(item)" >
+                    <span ng-bind="item" class="ng-binding">{{item}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="sidebar-inner c-overflow">
+    <div class="card">
+        <div data-ng-controller="sidebarLeftController">
+            <div class="profile-menu">
+                <a href="" toggle-submenu>
+                    <div class="profile-pic">
+                        <img src="images/logo.png" alt="Logo">
+                    </div>
+                    <div class="profile-info">
+                        {{current_user}}
+                        <i class="zmdi zmdi-caret-down"></i>
+                    </div>
+                </a>
+                <ul class="main-menu">
+                    <li data-ui-sref-active="active">
+                        <a data-ui-sref="admin.setting" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-settings"></i> 个人设置</a>
+                    </li>
+                    <li>
+                        <a href="/game-app/lockscreen"><i class="zmdi zmdi-lock"></i> 锁屏</a>
+                    </li>
+                    <li>
+                        <a href="/game-app/signout"><i class="zmdi zmdi-power"></i> 登出</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="main-menu" ng-repeat="mm in mainMenu">
+                <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('{{mm.route}}') }" ng-if="mm.nodes">
+                    <a href="" toggle-submenu><i class="{{mm.icon}}"></i> {{mm.text}}</a>
+                    <ul>
+                        <li ng-repeat="mmn in mm.nodes">
+                            <a data-ui-sref-active="active" data-ui-sref="{{mmn.route}}" data-ng-click="mactrl.sidebarStat($event)">{{mmn.text}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li data-ui-sref-active="active" ng-if="!mm.nodes">
+                    <a data-ui-sref="{{mm.route}}" data-ng-click="mactrl.sidebarStat($event)"><i class="{{mm.icon}}"></i> {{mm.text}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

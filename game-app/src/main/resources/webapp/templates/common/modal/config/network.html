@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{modal.title}}</h4>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" name="setForm">
+        <div class="form-group">
+            <label for="name" class="col-sm-4 control-label">名称</label>
+            <div class="col-sm-8">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm"
+                        name="name" id="name"
+                        placeholder="名称"
+                        ng-model="modal.data.name"
+                        ng-disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="url" class="col-sm-4 control-label">线路地址</label>
+            <div class="col-sm-8">
+                <div class="fg-line">
+                    <input type="text" class="form-control input-sm"
+                        name="url" id="url"
+                        placeholder="线路地址"
+                        ng-model="modal.data.url"
+                        ng-maxlength="32">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-info" ng-click="ok()"
+        ng-disabled="setForm.$pristine || (setForm.$dirty && setForm.$invalid)">确定</button>
+    <button class="btn btn-warning" ng-click="cancel()">取消</button>
+</div>

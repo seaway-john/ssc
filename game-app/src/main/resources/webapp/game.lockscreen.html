@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="login-content" data-ng-app="portalSigninApp">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Portal Lock Screen"/>
+        <meta name="author" content="Casa"/>
+        <link type="image/x-icon" rel="icon" href="images/favicon.ico"/>
+        <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+        <title>锁屏</title>
+
+        <!-- Vendor CSS -->
+        <link href="libs/bower_components/animate.css/animate.min.css" rel="stylesheet"/>
+        <link href="libs/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+        <link href="css/app.css" rel="stylesheet"/>
+        <link href="css/skin.css" rel="stylesheet"/>
+        <link href="css/demo.css" rel="stylesheet"/>
+
+    </head>
+
+    <body class="login-content" data-ng-controller="signinController">
+        <div class="lc-block lcb-alt toggled" id="l-lockscreen">
+            <form class="form-horizontal" role="form" id="signinForm" name="signinForm" ng-model="signinForm"
+                method="POST" action="/game-app/signin" ng-submit="checkForm()">
+                <input type="hidden" name="username" value="{{current_user}}"/>
+            
+                <img class="lcb-user" src="images/logo.png" alt="Casa Systems"/>
+                
+                <div class="fg-line">
+                    <input type="password" class="form-control text-center" name="password"
+                        placeholder="Password"
+                        ng-model="password"
+                        ng-minlength="6"
+                        ng-maxlength="32"
+                        ng-pattern="/^\S+$/"
+                        required="required"/>
+                </div>
+    
+                <button type="submit" class="btn btn-login btn-success btn-float">
+                    <i class="zmdi zmdi-arrow-forward"></i>
+                </button>
+            </form>
+        </div>
+        
+
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="images/browsers/chrome.png" alt=""/>
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="images/browsers/firefox.png" alt=""/>
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="images/browsers/opera.png" alt=""/>
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="images/browsers/safari.png" alt=""/>
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="images/browsers/ie.png" alt=""/>
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>
+        <![endif]-->
+
+
+       <!-- Core -->
+        <script src="libs/bower_components/jquery/jquery.min.js"></script>
+
+        <!-- Angular -->
+        <script src="libs/bower_components/angular/angular.min.js"></script>
+        <script src="libs/bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="libs/bower_components/angular-resource/angular-resource.min.js"></script>
+        
+        <!-- Angular Modules -->
+        <script src="libs/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="libs/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+        <script src="libs/bower_components/oclazyload/ocLazyLoad.min.js"></script>
+        <script src="libs/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <!-- Common Vendors -->
+        <script src="libs/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="libs/bower_components/Waves/waves.min.js"></script>
+        <script src="libs/bower_components/angular-nouislider/src/nouislider.min.js"></script>
+        <script src="libs/bower_components/ng-table/ng-table.min.js"></script>
+        <script src="libs/angular-upload/angular-upload.js"></script>
+        <script src="libs/angular-upload/angular-file-upload.js"></script>
+        
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="libs/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+        
+        <!-- App level -->
+        <script src="js/app/signin-app.js"></script>
+
+
+        <!-- Template Modules -->
+    </body>
+</html>
+

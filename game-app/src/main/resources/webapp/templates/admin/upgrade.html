@@ -1,0 +1,77 @@
+<div class="block-header">
+    <h2>
+        <i class="zmdi zmdi-puzzle-piece"></i> Administration
+        <i class="zmdi zmdi-chevron-right"></i>
+        <i class="zmdi zmdi-chevron-right"></i> Upgrade
+    </h2>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Portal Image Information</h2>
+    </div>
+    <div class="card-body card-padding">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="col-lg-2 c-cyan">Image</td>
+                    <td class="col-lg-4">{{image.name}}</td>
+                    <td class="col-lg-2 c-cyan">Version</td>
+                    <td class="col-lg-4">{{image.version}}</td>
+                </tr>
+                <tr>
+                    <td class="c-cyan">Description</td>
+                    <td>{{image.description}}</td>
+                    <td class="c-cyan">Build Date</td>
+                    <td>{{image.buildDate | date:'MM/dd/yyyy hh:mma'}}</td>
+                </tr>
+                <tr>
+                    <td class="c-cyan">Install Date</td>
+                    <td>{{image.installDate | date:'MM/dd/yyyy hh:mma'}}</td>
+                    <td class="c-cyan">System Date</td>
+                    <td>{{image.systemDate | date:'MM/dd/yyyy hh:mma'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="card-header ch-alt">
+        <h2>Upgrade Image</h2>
+        <ul class="actions">
+            <li>
+                <a tooltip="Refresh" ng-click="refresh()">
+                    <i class="zmdi zmdi-refresh-alt"></i>
+                </a>
+            </li>
+            <li>
+                <a tooltip="Import" ng-click="upload()">
+                    <i class="zmdi zmdi-cloud-upload"></i>
+                </a>
+                <button type="button" id="uploadFileButton" ng-hide="true" ng-file-select="onFileSelect($files)" data-multiple="false">
+                </button>
+            </li>
+            <li ng-show="selectedData.length">
+                <a tooltip="Delete" ng-click="delete()">
+                    <i class="zmdi zmdi-minus"></i>
+                </a>
+            </li>
+            <li ng-show="selectedData.length==1">
+                <a tooltip="Upgrade" ng-click="upgrade()">
+                    <i class="zmdi zmdi-dropbox"></i>
+                </a>
+            </li>
+            <li ng-show="selectedData.length==1">
+                <a target="_self" href="/game-app/admin/upgrade/download?fileName={{selectedData[0].fileName}}" tooltip="Export">
+                    <i class="zmdi zmdi-cloud-download"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body card-padding">
+        <div class="gridFullStyle" ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-move-columns ui-grid-exporter>
+        </div>
+    </div>
+</div>

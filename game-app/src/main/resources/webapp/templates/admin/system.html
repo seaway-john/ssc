@@ -1,0 +1,71 @@
+<div class="block-header">
+    <h2>
+        <i class="zmdi zmdi-puzzle-piece"></i> 管理员
+        <i class="zmdi zmdi-chevron-right"></i>
+        <i class="zmdi zmdi-chevron-right"></i> 系统
+    </h2>
+</div>
+
+<div class="card">
+    <div class="card-header ch-alt">
+        <h2>系统</h2>
+    </div>
+    <div class="card-body card-padding">
+        <button class="btn bgm-orange waves-effect" ng-click="reboot()">
+            重启系统
+        </button>
+    </div>
+</div>
+
+<div class="row" data-ng-repeat="processes in data">
+    <div class="col-sm-6"data-ng-repeat="process in processes">
+        <div class="card">
+            <div class="card">
+                <div class="card-header ch-alt">
+                    <h2>{{process.name}}</h2>
+                    <ul class="actions">
+                        <li>
+                            <a tooltip="刷新" ng-click="refresh()">
+                                <i class="zmdi zmdi-refresh-alt"></i>
+                            </a>
+                        </li>
+                        <li ng-if="process.name != 'java'">
+                            <a tooltip="重启进程" ng-click="restart(process.name)">
+                                <i class="zmdi zmdi-rotate-cw"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body" ng-if="process.info.length">
+                    <table class="table table-inner table-vmiddle">
+                        <thead>
+                        <tr>
+                            <th>PID</th>
+                            <th>CPU占用率</th>
+                            <th>RAM占用率</th>
+                            <th>RAM</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="info in process.info">
+                            <td>{{info.pid}}</td>
+                            <td>{{info.cpuRate}} %</td>
+                            <td>{{info.ramRate}} %</td>
+                            <td>{{info.ram}}B</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <nvd3 class="col-xs-6" options="cpuOp" data="process.cpuData"></nvd3>
+                        <nvd3 class="col-xs-6" options="ramOp" data="process.ramData"></nvd3>
+                    </div>
+                </div>
+                <div class="card-body card-padding" ng-if="process.info.length==0">
+                    <div class="alert alert-danger alert-dismissible">
+                        {{process.name}}已停止运行
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

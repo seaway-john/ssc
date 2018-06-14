@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html xmlns:th="http://www.thymeleaf.org" class="ie9" data-ng-app="gameApp" data-ng-controller="portalAdminCtrl as mactrl"><![endif]-->
+<![if IE 9 ]><html xmlns:th="http://www.thymeleaf.org" data-ng-app="gameApp" data-ng-controller="portalAdminCtrl as mactrl"><![endif]>
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="CASA portal Management"/>
+        <meta name="author" content="Casa"/>
+        <link type="image/x-icon" rel="icon" href="images/favicon.ico"/>
+        <link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+        <title>重庆时时彩管理</title>
+
+        <!-- CSS -->
+        <link href="libs/bower_components/animate.css/animate.min.css" rel="stylesheet"/>
+        <link href="libs/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet"/>
+        <link href="libs/bower_components/bootstrap-sweetalert/lib/sweetalert2.css" rel="stylesheet"/>
+        <link href="libs/bower_components/angular-loading-bar/src/loading-bar.css" rel="stylesheet"/>
+        <link href="libs/bower_components/nouislider/jquery.nouislider.css" rel="stylesheet"/>
+
+        <link href="libs/ui-grid-3.0.7/css/ui-grid.css" rel="stylesheet"/>
+        <link href="libs/angular-nvd3/nv.d3.min.css" rel="stylesheet"/>
+
+        <link href="css/app.css" rel="stylesheet"/>
+        <link href="css/skin.css" rel="stylesheet"/>
+        <link href="css/demo.css" rel="stylesheet"/>
+
+    </head>
+
+    <body data-ng-class="{ 'sw-toggled': mactrl.layoutType === '1', 'modal-open': mactrl.sidebarToggle.left === true }">
+        <data ui-view></data>
+
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="images/browsers/chrome.png" alt=""/>
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="images/browsers/firefox.png" alt=""/>
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="images/browsers/opera.png" alt=""/>
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="images/browsers/safari.png" alt=""/>
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="images/browsers/ie.png" alt=""/>
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>
+        <![endif]-->
+
+        <!-- Core -->
+        <script src="libs/bower_components/jquery/jquery.min.js"></script>
+
+        <!-- Angular -->
+        <script src="libs/bower_components/angular/angular.min.js"></script>
+        <script src="libs/bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="libs/bower_components/angular-resource/angular-resource.min.js"></script>
+
+        <!-- Angular Modules -->
+        <script src="libs/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="libs/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+        <script src="libs/bower_components/oclazyload/ocLazyLoad.min.js"></script>
+        <script src="libs/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+        <!-- Common Vendors -->
+        <script src="libs/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="libs/bower_components/bootstrap-sweetalert/lib/sweetalert2.js"></script>
+        <script src="libs/bower_components/Waves/waves.min.js"></script>
+        <script src="libs/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="libs/bower_components/nouislider/jquery.nouislider.min.js"></script>
+        <script src="libs/input-mask/input-mask.min.js"></script>
+
+        <!-- Placeholder for IE9 -->
+        <!--[if IE 9 ]>
+            <script src="libs/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+
+        <!-- Using below vendors in order to avoid misloading on resolve -->
+        <script src="libs/bower_components/moment/min/moment.min.js"></script>
+        <script src="libs/bower_components/angular-nouislider/src/nouislider.min.js"></script>
+
+        <script src="libs/ui-grid-3.0.7/grunt-scripts/csv.js"></script>
+        <script src="libs/ui-grid-3.0.7/grunt-scripts/pdfmake.js"></script>
+        <script src="libs/ui-grid-3.0.7/grunt-scripts/vfs_fonts.js"></script>
+        <script src="libs/ui-grid-3.0.7/js/ui-grid.js"></script>
+        <script src="libs/ui-ace/ace.js"></script>
+        <script src="libs/ui-ace/ui-ace.js"></script>
+        <script src="libs/angular-cookie/angular-cookies.min.js"></script>
+        <script src="libs/angular-upload/angular-upload.js"></script>
+        <script src="libs/angular-upload/angular-file-upload.js"></script>
+        <script src="libs/websocket/sockjs.js"></script>
+        <script src="libs/websocket/stomp.js"></script>
+
+        <!-- angular-nvd3 -->
+        <script src="libs/angular-nvd3/d3.v3.min.js"></script>
+        <script src="libs/angular-nvd3/nv.d3.min.js"></script>
+        <script src="libs/angular-nvd3/angular-nvd3.min.js"></script>
+
+        <script src="js/game.config.js"></script>
+        <script src="js/game-nvd3.js"></script>
+        <script src="js/game.util.js"></script>
+
+        <!-- App level -->
+        <script src="js/app/game-app.js"></script>
+        <script src="js/game-filter.js"></script>
+        <script src="js/game-http.js"></script>
+        <script src="js/game-route.js"></script>
+        <script src="js/game-service.js"></script>
+        <script src="js/game-template.js"></script>
+
+        <script src="js/controllers/main.js"></script>
+        <script src="js/controllers/ui-bootstrap.js"></script>
+        <script src="js/controllers/dashboard.js"></script>
+        <script src="js/controllers/header.js"></script>
+        <script src="js/controllers/template.js"></script>
+        <script src="js/controllers/modal.js"></script>
+
+        <!--page view-->
+        <script src="js/controllers/admin/users.js"></script>
+        <script src="js/controllers/admin/user-setting.js"></script>
+        <script src="js/controllers/admin/upgrade.js"></script>
+        <script src="js/controllers/admin/system.js"></script>
+        <script src="js/controllers/admin/database.js"></script>
+
+        <script src="js/controllers/config/setting.js"></script>
+        <script src="js/controllers/config/network.js"></script>
+        <script src="js/controllers/config/qrcode.js"></script>
+        <script src="js/controllers/config/lottery-win.js"></script>
+        <script src="js/controllers/config/agents.js"></script>
+
+        <script src="js/controllers/statistics/agent-journal-account.js"></script>
+        <script src="js/controllers/statistics/game-login-report.js"></script>
+
+        <!-- Template Modules -->
+
+        <script src="js/modules/ui.js"></script>
+
+    </body>
+</html>
+

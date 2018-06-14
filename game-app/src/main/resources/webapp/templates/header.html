@@ -1,0 +1,46 @@
+<ul class="header-inner">
+    <li id="menu-trigger" data-target="mainmenu" data-toggle-sidebar data-model-left="mactrl.sidebarToggle.left" data-ng-class="{ 'open': mactrl.sidebarToggle.left === true }">
+        <div class="line-wrap">
+            <div class="line top"></div>
+            <div class="line center"></div>
+            <div class="line bottom"></div>
+        </div>
+    </li>
+    <li class="logo hidden-xs">
+        <a data-ui-sref="dashboard" data-ng-click="mactrl.sidebarStat($event)">游戏管理 {{version}}</a>
+    </li>
+    <li class="pull-right">
+        <ul class="top-menu">
+            <li id="toggle-width">
+                <div class="toggle-switch">
+                    <input id="tw-switch" type="checkbox" hidden="hidden" data-change-layout="mactrl.layoutType">
+                    <label for="tw-switch" class="ts-helper"></label>
+                </div>
+            </li>
+            <li class="dropdown" dropdown>
+                <a dropdown-toggle class="tm-settings" href=""></a>
+                <ul class="dropdown-menu  pull-right">
+                    <li class="lv-header">
+                        <span ng-repeat="w in skinList" class="ss-skin bgm-{{ w }}" data-ng-click="skinSwitch(w)"></span>
+                    </li>
+                    <li class="hidden-xs">
+                        <a data-ng-click="fullScreen()" href="">
+                            <i class="zmdi zmdi-fullscreen"></i> 全屏</a>
+                    </li>
+                    <li>
+                        <a href="/game-app/index#/admin/setting">
+                            <i class="zmdi zmdi-settings"></i> 个人设置</a>
+                    </li>
+                    <li>
+                        <a href="/game-app/lockscreen">
+                            <i class="zmdi zmdi-lock"></i> 锁屏</a>
+                    </li>
+                    <li>
+                        <a href="/game-app/signout">
+                            <i class="zmdi zmdi-power"></i> 登出</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
